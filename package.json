@@ -6,7 +6,6 @@
   "author": "ics-kano <takeshi.kano@ics-web.jp>",
   "license": "",
   "config": {
-
     "src": "samples",
     "polyfill": "https://cdn.polyfill.io/v3/polyfill.js?features=default,es5,es6,es7,es8,es9,NodeList.prototype.forEach",
     "output": "transpiled_samples"
@@ -23,6 +22,7 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "cpx": "^1.5.0",
+    "rimraf": "^2.6.3",
     "ics-ie11-tools": "^1.0.9"
   }
 }

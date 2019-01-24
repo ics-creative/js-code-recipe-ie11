@@ -7,18 +7,21 @@
   "license": "MIT",
   "config": {
     "src": "samples",
+    "polyfill": "https://cdn.polyfill.io/v3/polyfill.js?features=default,Document,NodeList.prototype.forEach",
     "output": "transpiled_samples"
   },
   "scripts": {
     "clean": "rimraf $npm_package_config_output",
     "copy": "cpx $npm_package_config_src'/**/**.!(js)' $npm_package_config_output",
-    "transpile": "babel $npm_package_config_src -d $npm_package_config_output --no-source-maps --no-minify",
-    "build": "npm run clean && npm run copy && npm run transpile"
- },
+    "add-polyfill-meta": "addMetaAndPolyfill --src $npm_package_config_output --polyfill $npm_package_config_polyfill",
+    "transpile-js": "babel $npm_package_config_src -d $npm_package_config_output",
+    "build": "npm run clean && npm run copy &&  npm run add-polyfill-meta && npm run transpile-js"
+  },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
-    "cpx": "^1.5.0"
+    "cpx": "^1.5.0",
+    "ics-ie11-tools": "^1.0.7"
   }
 }

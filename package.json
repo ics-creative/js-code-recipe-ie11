@@ -4,7 +4,7 @@
   "main": "index.js",
   "repository": "https://ics-kano@github.com/ics-creative/js-code-recipe-ie11.git",
   "author": "ics-kano <takeshi.kano@ics-web.jp>",
-  "license": "MIT",
+  "license": "",
   "config": {
     "src": "samples",
     "polyfill": "https://cdn.polyfill.io/v3/polyfill.js?features=default,Document,NodeList.prototype.forEach",
@@ -22,6 +22,6 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "cpx": "^1.5.0",
-    "ics-ie11-tools": "^1.0.7"
+    "ics-ie11-tools": "^1.0.8"
   }
 }

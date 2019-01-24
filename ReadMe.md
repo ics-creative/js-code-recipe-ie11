@@ -9,24 +9,27 @@
 
 注2：変換後のファイルを完全に理解する必要はありません。開発者は新しい仕様を使ってJavaScriptを書き、IE11向けの対応はツールが行うという役割分担です。
 
+## ダウンロード
+サンプルファイルを一括でダウンロードする場合は次のURLを参照してください。
+
+https://github.com/ics-creative/js-code-recipe-ie11/archive/master.zip
+
 ## フォルダー構成について
 
-サンプルコードは以下のフォルダー構成になっています。
+本リポジトリーのサンプルコードは以下のフォルダー構成になっています。
 
 ```
-js-code-resipe-ie11
+js-code-recipe-ie11
 　├ samples：変換対象のサンプルコード
 　└ transpiled_samples：IE11で動作するサンプルコード
 ```
-
 ## 本書のサンプルコードをIE11で動作させるための考え方
 本書で解説しているサンプルコードは、本書の注意点として、古いブラウザーであるIE11には直接対応していません。IE11はES2015以降に追加された新文法・新機能の多くを利用できないためです。しかし、**新しいJavaScriptを使っていてもIE11で動作可能にするための対策方法があり、フロントエンドの開発では一般的に利用されています**。
 
 変換後のコードはIE11だけではなくモダンブラウザーでも動作するので、IE11対応が必要なプロジェクトに利用するとよいでしょう。
 
-
 ### 新文法の対応：トランスパイル
-アロー関数（`() => {}`）や、`for of`文などの新文法は、IE11では動作しません。コードをIE11でも動作するコードに変換して対応します。この変換を「トランスパイル」といいます。トランスパイルするためのツールとして代表的なものは[Babel](https://babeljs.io/)です。
+アロー関数（`() => {}`）や、`for of`文などの新文法は、IE11では動作しません。**IE11でも動作するES5相当のコードに変換して対応します**。この変換を「トランスパイル」といいます。トランスパイルするためのツールとして代表的なものは[Babel](https://babeljs.io/)です。
 
 ▼ 変換前のコード
 
@@ -79,34 +82,7 @@ for (var _i = 0; _i < array.length; _i++) {
 - アクセスしたブラウザーに応じたポリフィルを読み込めるため、アクセス環境に応じた適切なポリフィルが読み込まれる
 
 
-## 本書のサンプルコードをIE11向けに変換する手順
-トランスパイルの実行とポリフィルの適用を自動的に行い、サンプルコードをIE11向けに変換するスクリプトを準備しました。とくに面倒な設定は必要なく、数回のコマンドを実行するだけでサンプルコードが変換されます。
-
-### 環境準備
-
-1. コマンドラインツールを起動します。Windowsならば「コマンドプロンプト」、macOSならば「ターミナル.app」です。
-
-2. コマンドで、本フォルダーに移動します。
-
-▼ Windowsでのフォルダーの移動のコマンド
-
-```
-cd C:¥Users¥★★★js¥-code-recipe-ie11
-```
-
-▼ macOSでのフォルダーの移動のコマンド
-
-```
-cd /Users/★★★/js-code-recipe-ie11
-```
-
-3. コマンドで、変換に必要なファイルをインストールします。
-
-```
-npm install
-```
-
-### HTMLコードでポリフィルを読み込む
+#### ポリフィルの適用方法
 
 CDNで公開されているPolyfill.ioのポリフィルを読み込みます。URLは以下のとおりです。
 
@@ -123,6 +99,33 @@ CDNで公開されているPolyfill.ioのポリフィルを読み込みます。
   <!-- 新機能を使ったJavaScriptのコード -->
   <script src="main.js" defer></script>
 </head>
+```
+
+## 本書のサンプルコードをIE11向けに**自動的に**変換する手順
+トランスパイルの実行とポリフィルの適用を自動的に行い、サンプルコードをIE11向けに変換するスクリプトを準備しました。とくに面倒な設定は必要なく、数回のコマンドを実行するだけでサンプルコードが変換されます。
+
+### 環境準備
+
+1. コマンドラインツールを起動します。Windowsならば「コマンドプロンプト」、macOSならば「ターミナル.app」です。
+
+2. コマンドで、本フォルダーに移動します。
+
+▼ Windowsでのフォルダーの移動のコマンド
+
+```
+cd C:¥Users¥★★★¥js-code-recipe-ie11
+```
+
+▼ macOSでのフォルダーの移動のコマンド
+
+```
+cd /Users/★★★/js-code-recipe-ie11
+```
+
+3. コマンドで、変換に必要なファイルをインストールします。
+
+```
+npm install
 ```
 
 ### JavaScriptのコードを変換する
@@ -151,8 +154,45 @@ npm run build
 },
 ```
 
-## 19章269のコードをIE11向けに変換する方法
+## ESモジュールを使ったコード（19章269）をIE11向けに変換する方法
+19章269はESモジュールを使っており、上記の設定だけでは不十分です。ESモジュールを使った場合のコードの変換方法を、次のリポジトリにまとめました。
 
-設定方法を次のリポジトリにまとめました。
+- [ESモジュールを使ったコードをIE11向けに変換する方法](https://github.com/ics-creative/js-code-recipe-ie11-es-module)
 
-- [19章269のコードをIE11向けに変換する方法](https://github.com/ics-creative/js-code-recipe-ie11-es-module)
+## ローカルで動作しないサンプルについて
+
+次のサンプルはローカルで実行すると動作しません。確認可能なURL（サーバー）がありますのであわせて参照ください。
+
+通常のサンプルでも[サーバーが必要なものがあります](https://github.com/ics-creative/js-code-recipe#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A7%E5%8B%95%E4%BD%9C%E3%81%97%E3%81%AA%E3%81%84%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)が、IE11ではそれに加えていくつかのサンプルにサーバーが必要です。
+
+| フォルダー | 項目 |  確認可能なURL（IE11対応済）  |
+|:---|:----|:---|
+|  c11 | 200  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c11/200/index.html)  |
+|  c12 | 214  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/214/index.html)  |
+|  c12 | 215  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/215/index.html)  |
+|  c12 | 218  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/218/index.html)  |
+|  c15 | 244  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/244/index.html)  |
+|  c15 | 245  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/245/index.html)  |
+
+
+自身で変更したサンプルを確認するにはサーバーが必要です。Google Chromeの拡張機能「[Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb)」を使うと、手軽に構築できます。
+
+- 参考：[web server for chromeの設定](https://twitter.com/tonkotsuboy_com/status/868397954532495360)
+
+## CSS Gridのレイアウトが崩れるサンプルについて
+
+一部のサンプルについては、CSS Gridを用いるているためIE11でレイアウトが崩れます。ツール「[autoprefixer](https://github.com/autoprefixer/autoprefixer.github.io)」を使えばIE11でもCSS Gridのレイアウトを再現できます。JavaScriptの解説からは外れるので、対応方法については省きます。下記を参照ください。
+
+- 参考記事：[Autoprefixerが進化し、CSS GridのIE11対応が楽になった \- Qiita](https://qiita.com/tonkotsuboy_com/items/bce73685cd6b1ea511dc)
+
+## IE11で動作しないサンプル
+
+以下のサンプルについては、IE11では動作しません。該当機能を使う際は注意しましょう。
+
+| フォルダー | 項目 |  IE11で動作しない原因  |
+|:---|:----|:---|
+|  c02 | 023  |  CSS変数に未対応  |
+|  c09 | 175  |  HTMLのカラーピッカーに未対応  |
+|  c09 | 177  |  HTMLのカラーピッカーに未対応  |
+|  c09 | 177  |  HTMLのカラーピッカーに未対応  |
+|  c14 | 243  |  Notifications APIが未実装  |

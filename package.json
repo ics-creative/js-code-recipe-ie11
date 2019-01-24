@@ -1,0 +1,24 @@
+{
+  "name": "js-code-recipe-ie11",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://ics-kano@github.com/ics-creative/js-code-recipe-ie11.git",
+  "author": "ics-kano <takeshi.kano@ics-web.jp>",
+  "license": "MIT",
+  "config": {
+    "src": "samples",
+    "output": "transpiled_samples"
+  },
+  "scripts": {
+    "clean": "rimraf $npm_package_config_output",
+    "copy": "cpx $npm_package_config_src'/**/**.!(js)' $npm_package_config_output",
+    "transpile": "babel $npm_package_config_src -d $npm_package_config_output --no-source-maps --no-minify",
+    "build": "npm run clean && npm run copy && npm run transpile"
+ },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "cpx": "^1.5.0"
+  }
+}

@@ -185,7 +185,17 @@ npm run build
 
 - 参考記事：[Autoprefixerが進化し、CSS GridのIE11対応が楽になった \- Qiita](https://qiita.com/tonkotsuboy_com/items/bce73685cd6b1ea511dc)
 
-## IE11で動作しないサンプル
+## Generatorを使ったサンプルについて
+19章274で解説しているGeneratorは、BabelによりIE11対応コードに変換されます。変換されたコードでは、「[regenerator](https://github.com/facebook/regenerator)」というライブラリーが必要なため、手動でスクリプトを追加しています。
+
+▼ コードの追加例
+
+```html
+<!-- Generatorのポリフィルに必要なコード -->
+<script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.1/runtime.min.js" defer></script>
+<script src="main.js" defer></script>
+```
+## IE11で動作しないサンプルについて
 
 以下のサンプルについては、IE11では動作しません。該当機能を使う際は注意しましょう。
 

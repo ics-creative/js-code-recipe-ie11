@@ -1,5 +1,3 @@
-** 現在作成中のページです **
-
 # サンプルコードをIE11で動作させる方法
 こちらは「[JavaScript コードレシピ集：｜技術評論社](https://gihyo.jp/book/2019/978-4-297-10368-2/support)」サポートページの一部です。
 
@@ -90,12 +88,14 @@ CDNで公開されているPolyfill.ioのポリフィルを読み込みます。
 
 `?features=機能1,機能2,`と指定することで、必要なポリフィル機能を追加できます。詳細な機能名は[公式サイト](https://polyfill.io/v3/url-builder)を参照いただくとして、今回は下記コードのように読み込みます。配列の新機能、文字列の新機能を含め、サンプルコードで使用している機能のポリフィルがカバーされているので、他のプロジェクトでコピペして使い回すと便利でしょう。
 
+▼ polyfill.ioのおすすめ読み込み設定
+
 ```html
 <!DOCTYPE html>
 <head>
   <title>サンプル</title>
   <!-- ポリフィルの読み込み -->
-  <script src="https://cdn.polyfill.io/v3/polyfill.js?features=default,Document,NodeList.prototype.forEach" defer></script>
+  <script src="https://cdn.polyfill.io/v3/polyfill.js?features=default,es5,es6,es7,es8,es9,NodeList.prototype.forEach" defer></script>
   <!-- 新機能を使ったJavaScriptのコード -->
   <script src="main.js" defer></script>
 </head>
@@ -195,4 +195,6 @@ npm run build
 |  c09 | 175  |  HTMLのカラーピッカーに未対応  |
 |  c09 | 177  |  HTMLのカラーピッカーに未対応  |
 |  c09 | 177  |  HTMLのカラーピッカーに未対応  |
+|  c11 | 200  |  Web Audio APIに未対応  |
+|  c11 | 203  |  getDeviceStreamに未対応  |
 |  c14 | 243  |  Notifications APIが未実装  |

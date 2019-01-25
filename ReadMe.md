@@ -74,7 +74,7 @@ Babelを用いたトランスパイルについてはNode.jsの知識が必要�
 なお、Babelによる変換後のソースコードを完全に理解する必要はありませんし、変換後のコードを手動で変更するのは避けるべきです。開発者は新構文を使ってJavaScriptを書き、構文のIE11向け対応はツールに任せるという役割分担です。
 
 ### 新機能の対応：ポリフィル
-`Promise`オブジェクトや`fetch()`メソッドなどの新機能は、IE11には実装されていません。IE11でも動作させるには、不足機能を補うコード「ポリフィル」が必要です。ポリフィルを自分で準備するのは大変ですので、次のようなものを使います。
+`Promise`オブジェクトや`fetch()`メソッドなどの新機能は、IE11には実装されていません。IE11でも動作させるには、不足機能を補うコード「ポリフィル」が必要です。ポリフィルを自分で準備するのは大変ですので、次を利用するいいでしょう。
 
 - [@babel/polyfill · Babel](https://babeljs.io/docs/en/babel-polyfill)
 - [Polyfill\.io](https://polyfill.io)
@@ -176,14 +176,13 @@ npm run build
 
 通常のサンプルでも[サーバーを必要とするものがあります](https://github.com/ics-creative/js-code-recipe#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A7%E5%8B%95%E4%BD%9C%E3%81%97%E3%81%AA%E3%81%84%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)が、IE11ではそれに加えていくつかのサンプルにサーバーが必要です。
 
-| フォルダー | 項目 |  確認可能なURL（IE11対応済）  |
-|:---|:----|:---|
-|  c11 | 200  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c11/200/index.html)  |
-|  c12 | 214  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/214/index.html)  |
-|  c12 | 215  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/215/index.html)  |
-|  c12 | 218  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/218/index.html)  |
-|  c15 | 244  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/244/index.html)  |
-|  c15 | 245  |  [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/245/index.html)  |
+| 章フォルダー | 項目番号 | 項目名                                      | 確認可能なURL（IE11対応済）                                                                                      |
+|:-----------|:--------|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
+| c12        | 214     | 画像のRGBA値を調べたい                        | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/214/index.html) |
+| c12        | 215     | キャンバスの画像を加工したい                    | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/215/index.html) |
+| c12        | 218     | キャンバスで描いたグラフィックをダウンロードしたい | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/218/index.html) |
+| c15        | 244     | localStorageを使ってローカルデータを使いたい    | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/244/index.html) |
+| c15        | 245     | Storage APIからデータを消したい               | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/245/index.html) |
 
 自身で変更したサンプルを確認するにはサーバーが必要です。Google Chromeの拡張機能「[Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb)」を使うと、手軽に構築できます。
 
@@ -210,13 +209,12 @@ npm run build
 
 次のサンプルについては、IE11では動作しません。該当機能を使う際は注意しましょう。
 
-| フォルダー | 項目 | IE11で動作しない原因       |
-|:---------|:-----|:------------------------|
-| c02      | 023  | CSS変数に未対応            |
-| c09      | 175  | HTMLのカラーピッカーに未対応 |
-| c09      | 177  | HTMLのカラーピッカーに未対応 |
-| c09      | 177  | HTMLのカラーピッカーに未対応 |
-| c11      | 200  | Web Audio APIに未対応     |
-| c11      | 203  | getDeviceStreamに未対応   |
-| c14      | 242  | Service Workerに未対応    |
-| c14      | 243  | Notifications APIに未対応 |
+| 章フォルダー | 項目番号 | 項目名                                   | IE11で動作しない原因                        |
+|:-----------|:--------|:----------------------------------------|:-----------------------------------------|
+| c02        | 023     | ランダムな数を使いたい                      | CSS変数に未対応（`Math.random()`は使用可能） |
+| c09        | 176     | カラーピッカーの情報を取得したい             | HTMLのカラーピッカーに未対応                 |
+| c09        | 177     | カラーピッカーの変更を検知したい             | HTMLのカラーピッカーに未対応                 |
+| c11        | 200     | 音声を読み込みたい（Web Audio API）         | Web Audio APIに未対応                      |
+| c11        | 203     | カメラを使いたい                           | `getDeviceStream()`メソッドに未対応         |
+| c14        | 242     | バックグランドでサービスワーカーを実行させたい | サービスワーカーに未対応                     |
+| c14        | 243     | プッシュ通知を実行させたい                  | Notifications APIに未対応                  |

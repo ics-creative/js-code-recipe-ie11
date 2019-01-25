@@ -195,7 +195,7 @@ npm run build
 - 参考記事：[Autoprefixerが進化し、CSS GridのIE11対応が楽になった \- Qiita](https://qiita.com/tonkotsuboy_com/items/bce73685cd6b1ea511dc)
 
 ## Generatorを使ったサンプルについて
-19章274で解説しているGeneratorは、BabelによりIE11対応コードに変換されます。変換されたコードでは、「[regenerator](https://github.com/facebook/regenerator)」というライブラリーが必要なため、手動でスクリプトを追加しています。
+19章274「イテレータを自作したい (ジェネレータ)」で解説している`Generator`オブジェクトは、BabelによりIE11対応コードに変換されます。変換されたコードでは、「[regenerator](https://github.com/facebook/regenerator)」というライブラリーが必要なため、手動でスクリプトを追加しています。
 
 ▼ コードの追加例
 

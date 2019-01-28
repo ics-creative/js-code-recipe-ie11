@@ -1,4 +1,7 @@
 [![Release Version](https://img.shields.io/github/release/ics-creative/js-code-recipe-ie11.svg)](https://github.com/ics-creative/js-code-recipe-ie11/releases)
+[![](https://img.shields.io/github/last-commit/ics-creative/js-code-recipe-ie11.svg)](https://github.com/ics-creative/js-code-recipe-ie11/commits/master)
+[![](https://img.shields.io/github/release-date/ics-creative/js-code-recipe-ie11.svg)](https://github.com/ics-creative/js-code-recipe-ie11/releases)
+
 
 # サンプルコードをInternet Explorer 11で動作させる方法
 

@@ -74,7 +74,7 @@ Babelを用いたトランスパイルについてはNode.jsの知識が必要�
 なお、Babelによる変換後のソースコードを完全に理解する必要はありませんし、変換後のコードを手動で変更するのは避けるべきです。開発者は新構文を使ってJavaScriptを書き、構文のIE11向け対応はツールに任せるという役割分担です。
 
 ### 新機能の対応：ポリフィル
-`Promise`オブジェクトや`fetch()`メソッドなどの新機能は、IE11には実装されていません。IE11でも動作させるには、不足機能を補うコード「ポリフィル」が必要です。ポリフィルを自分で準備するのは大変ですので、次を利用するいいでしょう。
+配列の`includes()`メソッドや`Promise`オブジェクトなどの新機能は、IE11には実装されていません。IE11でも動作させるには、不足機能を補うコード「ポリフィル」が必要です。ポリフィルを自分で準備するのは大変ですので、次を利用するいいでしょう。
 
 - [@babel/polyfill · Babel](https://babeljs.io/docs/en/babel-polyfill)
 - [Polyfill\.io](https://polyfill.io)
@@ -174,25 +174,53 @@ npm run build
 
 次のサンプルはローカルで実行すると動作しません。確認可能なURL（サーバー）がありますのであわせて参照ください。
 
-通常のサンプルでも[サーバーを必要とするものがあります](https://github.com/ics-creative/js-code-recipe#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A7%E5%8B%95%E4%BD%9C%E3%81%97%E3%81%AA%E3%81%84%E3%82%B5%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)が、IE11ではそれに加えていくつかのサンプルにサーバーが必要です。
-
 | 章フォルダー | 項目番号 | 項目名                                      | 確認可能なURL（IE11対応済）                                                                                      |
 |:-----------|:--------|:-------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
 | c12        | 214     | 画像のRGBA値を調べたい                        | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/214/index.html) |
 | c12        | 215     | キャンバスの画像を加工したい                    | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/215/index.html) |
 | c12        | 218     | キャンバスで描いたグラフィックをダウンロードしたい | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c12/218/index.html) |
+| c14        | 233     | `fetch()`メソッドでテキストを読み込みたい           | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/233/index.html) |
+| c14        | 234     | `fetch()`メソッドでJSONを読み込みたい              | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/234/index.html) |
+| c14        | 235     | `fetch()`メソッドでXMLを読み込みたい               | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/235/index.html) |
+| c14        | 236     | `fetch()`メソッドでバイナリを読み込みたい           | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/236/index.html) |
+| c14        | 238     | `XMLHttpRequest`でテキストを読み込みたい           | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/238/index.html) |
+| c14        | 239     | `XMLHttpRequest`でデータの読み込み状況を取得したい  | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/239/index.html) |
+| c14        | 240     | `XMLHttpRequest`で読み込み中の通信をキャンセルしたい | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/240/index.html) |
+| c14        | 241     | バックグランドでスクリプトを実行させたい    | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/241/index.html) |
+| c14        | 242     | バックグランドでサービスワーカーを実行させたい    | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/242/index.html) |
+| c14        | 243     | プッシュ通知を実行させたい    | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c14/243/index.html) |
 | c15        | 244     | localStorageを使ってローカルデータを使いたい    | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/244/index.html) |
 | c15        | 245     | Storage APIからデータを消したい               | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/245/index.html) |
+| c15        | 246     | Cookieを使ってローカルデータを使いたい    | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/246/index.html) |
+| c15        | 247     | Cookieからデータ読み出したい    | [サーバー上で確認する](https://ics-creative.github.io/js-code-recipe-ie11/transpiled_samples/c15/247/index.html) |
 
 自身で変更したサンプルを確認するにはサーバーが必要です。Google Chromeの拡張機能「[Web Server for Chrome](https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb)」を使うと、手軽に構築できます。
 
-- 参考：[web server for chromeの設定](https://twitter.com/tonkotsuboy_com/status/868397954532495360)
+- 参考：[Web Server for Chromeの設定](https://twitter.com/tonkotsuboy_com/status/868397954532495360)
 
-## CSS Gridのレイアウトが崩れるサンプルについて
+## `fetch()`メソッドを使ったサンプルについて
 
-一部のサンプルについては、CSS Gridを用いるているためIE11でレイアウトが崩れます。ツール「[autoprefixer](https://github.com/autoprefixer/autoprefixer.github.io)」を使えばIE11でもCSS Gridのレイアウトを再現できます。JavaScriptの解説からは外れるので、対応方法については省きます。下記を参照ください。
+14章で解説している`fetch()`メソッドはIE11で動作しませんが、`fetch`用のポリフィルを適用することで動作するようになります。今回は「[github/fetch](https://github.com/github/fetch)」のフェッチを用います。HTMLタグで次のようにポリフィルを読み込みます。
 
-- 参考記事：[Autoprefixerが進化し、CSS GridのIE11対応が楽になった \- Qiita](https://qiita.com/tonkotsuboy_com/items/bce73685cd6b1ea511dc)
+```html
+<!DOCTYPE html>
+  <!-- 中略 -->
+  <!-- fetchのポリフィル  -->
+  <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0.0/dist/fetch.umd.min.js" defer></script>>
+  <!-- fetch()を使ったコード  -->
+  <script src="main.js" defer></script>
+</head>
+```
+
+`samples`フォルダー内のコードは、すでにポリフィルを読み込み済みです。該当のサンプルは以下のとおりです。
+
+| 章フォルダー | 項目番号 | 項目名                                   |
+|:-----------|:--------|:----------------------------------------|
+| c14       | 233     | `fetch()`メソッドでテキストを読み込みたい               |
+| c14        | 234     | `fetch()`メソッドでJSONを読み込みたい           |
+| c14        | 235     | `fetch()`メソッドでXMLを読み込みたい                 |
+| c14        | 236     | `fetch()`メソッドでバイナリを読み込みたい                 |
+
 
 ## Generatorを使ったサンプルについて
 19章274「イテレータを自作したい (ジェネレータ)」で解説している`Generator`オブジェクトは、BabelによりIE11対応コードに変換されます。変換されたコードでは、「[regenerator](https://github.com/facebook/regenerator)」というライブラリーが必要なため、手動でスクリプトを追加しています。
@@ -205,16 +233,42 @@ npm run build
 <script src="main.js" defer></script>
 ```
 
+| 章フォルダー | 項目番号 | 項目名                                   |
+|:-----------|:--------|:----------------------------------------|
+| c19        | 274   | イテレータを自作したい (ジェネレータ)              |
+
+
+また、`await`を用いたサンプルコードも、Babelを用いると`regenerator`が必要なコードに変換されます。次のサンプルには、`regenerator`のポリフィルを読み込んだサンプルを次に示します。
+
+▼ `await`のIE11対応のために`regenerator`を読み込んでいるサンプル
+
+| 章フォルダー | 項目番号 | 項目名                                   |
+|:-----------|:--------|:----------------------------------------|
+| c13        | 226（`sample2`フォルダー）     | `Promise`で直列処理をしたい                  |
+| c13        | 227     | `Promise`で動的に直列処理をしたい                  |
+| c14        | 233     | `fetch()`メソッドでテキストを読み込みたい                 |
+| c14        | 234     | `fetch()`メソッドでJSONを読み込みたい                 |
+| c14        | 235     | `fetch()`メソッドでXMLを読み込みたい                 |
+| c14        | 236     | `fetch()`メソッドでバイナリを読み込みたい                 |
+
+## CSS Gridのレイアウトが崩れるサンプルについて
+
+一部のサンプルについては、CSS Gridを用ているためIE11でレイアウトが崩れます。ツール「[Autoprefixer](https://github.com/postcss/autoprefixer)」を使えばIE11でもCSS Gridのレイアウトを再現できます。JavaScriptの解説からは外れるので、対応方法については省きます。下記を参照ください。
+
+- 参考記事：[Autoprefixerが進化し、CSS GridのIE11対応が楽になった \- Qiita](https://qiita.com/tonkotsuboy_com/items/bce73685cd6b1ea511dc)
+
+
 ## IE11で動作しないサンプルについて
 
 次のサンプルについては、IE11では動作しません。該当機能を使う際は注意しましょう。
 
-| 章フォルダー | 項目番号 | 項目名                                   | IE11で動作しない原因                        |
-|:-----------|:--------|:----------------------------------------|:-----------------------------------------|
-| c02        | 023     | ランダムな数を使いたい                      | CSS変数に未対応（`Math.random()`は使用可能） |
-| c09        | 176     | カラーピッカーの情報を取得したい             | HTMLのカラーピッカーに未対応                 |
-| c09        | 177     | カラーピッカーの変更を検知したい             | HTMLのカラーピッカーに未対応                 |
-| c11        | 200     | 音声を読み込みたい（Web Audio API）         | Web Audio APIに未対応                      |
-| c11        | 203     | カメラを使いたい                           | `getDeviceStream()`メソッドに未対応         |
-| c14        | 242     | バックグランドでサービスワーカーを実行させたい | サービスワーカーに未対応                     |
-| c14        | 243     | プッシュ通知を実行させたい                  | Notifications APIに未対応                  |
+| 章フォルダー | 項目番号 | 項目名                                   | IE11で動作しない原因                                       |
+|:-----------|:--------|:----------------------------------------|:--------------------------------------------------------|
+| c02        | 023     | ランダムな数を使いたい                      | CSS変数に未対応（`Math.random()`は使用可能）                |
+| c09        | 175     | スライダーの変更を検知したい                | スライダーの`input`イベントに未対応（`change`イベントには対応） |
+| c09        | 176     | カラーピッカーの情報を取得したい             | HTMLのカラーピッカーに未対応                                |
+| c09        | 177     | カラーピッカーの変更を検知したい             | HTMLのカラーピッカーに未対応                                |
+| c11        | 200     | 音声を読み込みたい（Web Audio API）         | Web Audio APIに未対応                                     |
+| c11        | 203     | カメラを使いたい                           | `getDeviceStream()`メソッドに未対応                        |
+| c14        | 242     | バックグランドでサービスワーカーを実行させたい | サービスワーカーに未対応                                    |
+| c14        | 243     | プッシュ通知を実行させたい                  | Notifications APIに未対応                                 |

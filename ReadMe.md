@@ -1,3 +1,5 @@
+[![Release Version](https://img.shields.io/github/release/ics-creative/js-code-recipe-ie11.svg)](https://github.com/ics-creative/js-code-recipe-ie11/releases)
+
 # サンプルコードをInternet Explorer 11で動作させる方法
 
 こちらは「[JavaScriptコードレシピ集（技術評論社）](https://gihyo.jp/book/2019/978-4-297-10368-2)」サポートページの一部です。

@@ -1,6 +1,5 @@
 var LikeCounter = function LikeCounter() {
   var _this = this;
-
   // ボタンをクリックした数
   this.clickedCount = 0;
   var button = document.querySelector('.button');
@@ -10,5 +9,4 @@ var LikeCounter = function LikeCounter() {
     clickedCountText.textContent = _this.clickedCount;
   });
 };
-
 new LikeCounter();

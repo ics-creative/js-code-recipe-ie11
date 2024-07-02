@@ -8,19 +8,18 @@ function searchUser(targetId) {
   }, {
     id: 3,
     name: '太郎'
-  }]; // 該当ユーザーを検索
+  }];
 
+  // 該当ユーザーを検索
   var targetUser = userList.find(function (user) {
     return user.id === targetId;
-  }); // ◎値が存在しないときの処理を追加
+  });
 
+  // ◎値が存在しないときの処理を追加
   if (targetUser === undefined) {
     return null;
   }
-
   return targetUser.name;
 }
-
 console.log(searchUser(1)); // 結果: '鈴木'
-
 console.log(searchUser(4)); // 結果: null

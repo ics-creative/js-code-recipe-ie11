@@ -140,24 +140,29 @@ var PREF_LIST = [{
 }, {
   value: 47,
   name: '沖縄県'
-}]; // select要素を参照
+}];
 
-var selectElement = document.querySelector('#pref'); // option要素の初期表示を作成
+// select要素を参照
+var selectElement = document.querySelector('#pref');
 
-var optionString = '<option value="">選択ください</option>'; // option要素を配列から作成
-
+// option要素の初期表示を作成
+var optionString = '<option value="">選択ください</option>';
+// option要素を配列から作成
 PREF_LIST.forEach(function (item) {
   // 都道府県ごとにvalueとnameを反映
   optionString += "<option value=\"" + item.value + "\">" + item.name + "</option>";
-}); // option要素をselect要素内に追加
+});
+// option要素をselect要素内に追加
+selectElement.innerHTML = optionString;
 
-selectElement.innerHTML = optionString; // 変更時のイベント
-
+// 変更時のイベント
 selectElement.addEventListener('change', function (event) {
   // 現在の値を取得
-  var value = event.target.value; // メッセージを作成
+  var value = event.target.value;
 
-  var message = value === '' ? '選択されていません' : "\u9078\u629E\u3055\u308C\u3066\u3044\u308B\u306E\u306F " + value + " \u3067\u3059"; // 画面に表示
+  // メッセージを作成
+  var message = value === '' ? '選択されていません' : "\u9078\u629E\u3055\u308C\u3066\u3044\u308B\u306E\u306F " + value + " \u3067\u3059";
 
+  // 画面に表示
   document.querySelector('.log').innerHTML = message;
 });

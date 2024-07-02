@@ -1,14 +1,11 @@
 {
   "name": "js-code-recipe-ie11",
-  "version": "1.0.6",
-  "main": "index.js",
-  "repository": "https://ics-kano@github.com/ics-creative/js-code-recipe-ie11.git",
-  "author": "ics-kano <takeshi.kano@ics-web.jp>",
+  "version": "1.1.0",
+  "private": true,
   "homepage": "https://gihyo.jp/book/2019/978-4-297-10368-2",
-  "license": "",
   "config": {
     "src": "samples",
-    "polyfill": "https://cdn.polyfill.io/v3/polyfill.js?features=default,es5,es6,es7,es8,es9,NodeList.prototype.forEach",
+    "polyfill": "https://polyfill-fastly.io/v3/polyfill.min.js",
     "output": "transpiled_samples"
   },
   "scripts": {
@@ -19,11 +16,11 @@
     "build": "npm run clean && npm run copy &&  npm run add-polyfill-meta && npm run transpile-js"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
     "cpx": "^1.5.0",
-    "rimraf": "^2.6.3",
-    "ics-ie11-tools": "^1.0.9"
+    "ics-ie11-tools": "^1.0.10",
+    "rimraf": "^5.0.7"
   }
 }

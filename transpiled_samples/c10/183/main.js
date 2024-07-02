@@ -1,7 +1,8 @@
 // 要素を取得
 var element = document.querySelector('.rect');
 element.animate({
-  transform: ['translateX(0px) rotate(0deg)', // 開始値
+  transform: ['translateX(0px) rotate(0deg)',
+  // 開始値
   'translateX(800px) rotate(360deg)' // 終了値
   ]
 }, {
@@ -12,5 +13,4 @@ element.animate({
   direction: 'normal',
   // 繰り返し挙動
   easing: 'ease' // 加減速種類
-
 });

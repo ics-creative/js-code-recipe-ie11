@@ -5,8 +5,8 @@ window.addEventListener('DOMContentLoaded', function () {
   var imgs = document.querySelectorAll('img');
   imgs.forEach(function (img) {
     // 各img要素のdata-src属性をMapに保存
-    srcMap.set(img, img.dataset.src); // 遅延読み込みのため空にしておく
-
+    srcMap.set(img, img.dataset.src);
+    // 遅延読み込みのため空にしておく
     img.removeAttribute('src');
   });
 });

@@ -3,7 +3,6 @@ btn.addEventListener('click', function (event) {
   // フルスクリーンにする
   myReqeustFullScreen(document.body);
 });
-
 function myReqeustFullScreen(element) {
   if (element.requestFullscreen) {
     // 標準仕様
@@ -19,13 +18,11 @@ function myReqeustFullScreen(element) {
     element.msRequestFullscreen();
   }
 }
-
 var btnExit = document.querySelector('#btnExit');
 btnExit.addEventListener('click', function (event) {
   // フルスクリーンを解除する
   myCancelFullScreen();
 });
-
 function myCancelFullScreen() {
   if (document.exitFullscreen) {
     // 標準仕様

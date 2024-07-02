@@ -82,7 +82,7 @@ Babelを用いたトランスパイルについてはNode.jsの知識が必要�
 配列の`includes()`メソッドや`Promise`オブジェクトなどの新機能は、IE11には実装されていません。IE11でも動作させるには、不足機能を補うコード「ポリフィル」が必要です。ポリフィルを自分で準備するのは大変ですので、次を利用するいいでしょう。
 
 - [@babel/polyfill · Babel](https://babeljs.io/docs/en/babel-polyfill)
-- [Polyfill\.io](https://polyfill.io)
+- https://polyfill-fastly.io/
 
 ポリフィルの適用には、主に次の手段があります。
 
@@ -91,24 +91,25 @@ Babelを用いたトランスパイルについてはNode.jsの知識が必要�
 
 今回は、手軽にポリフィルを扱うため、`script`タグを使ってポリフィルを読み込む方法を紹介します。ポリフィルはネットワーク上に公開されているものを扱うと便利です。このようなコンテンツの公開ネットワークのことを「CDN」と呼びます。
 
-CDNで公開されているポリフィルで便利なものは「[Polyfill\.io](https://polyfill.io)」です。アクセス環境に応じて必要なポリフィルだけが読み込まれる特徴があります。
+CDNで公開されているポリフィルで便利なものは「 https://polyfill-fastly.io/ 」です。アクセス環境に応じて必要なポリフィルだけが読み込まれる特徴があります。
 
 #### ポリフィルの適用方法
 
-CDNで公開されているPolyfill.ioのポリフィルを読み込みます。URLは次のとおりです。
+CDNで公開されているポリフィルを読み込みます。URLは次のとおりです。
 
-- [https://cdn.polyfill.io/v3/polyfill.js](https://cdn.polyfill.io/v3/polyfill.js)
+- https://polyfill-fastly.io/v3/polyfill.min.js
 
-`?features=機能1,機能2,`と指定することで、必要なポリフィル機能を追加できます。詳細な機能名は[公式サイト](https://polyfill.io/v3/url-builder)を参照いただくとして、今回は下記コードのように読み込みます。ES2015以降の新機能など多くのポリフィルをカバーした設定なので、コピペして使い回すと便利でしょう。
 
-▼ polyfill.ioのオススメ読み込み設定
+今回は下記コードのように読み込みます。ES2015以降の新機能など多くのポリフィルをカバーした設定なので、コピペして使い回すと便利でしょう。
+
+▼ 読み込み設定
 
 ```html
 <!DOCTYPE html>
 <head>
   <title>サンプル</title>
   <!-- ポリフィルの読み込み -->
-  <script src="https://cdn.polyfill.io/v3/polyfill.js?features=default,es5,es6,es7,es8,es9,NodeList.prototype.forEach" defer></script>
+  <script src="https://polyfill-fastly.io/v3/polyfill.min.js" defer></script>
   <!-- 新機能を使ったJavaScriptのコード -->
   <script src="main.js" defer></script>
 </head>

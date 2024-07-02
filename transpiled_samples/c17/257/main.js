@@ -15,7 +15,7 @@ function generateError() {
     console.log('エラーの処理が完了しました');
     console.log('----------');
   }
-} // 3秒ごとにgenerateError()を実行する
+}
 
-
+// 3秒ごとにgenerateError()を実行する
 setInterval(generateError, 3000);

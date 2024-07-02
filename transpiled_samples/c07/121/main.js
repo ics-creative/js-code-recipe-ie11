@@ -4,7 +4,6 @@ document.querySelector('.box').addEventListener('mouseover', function () {
 document.querySelector('.inner').addEventListener('mouseover', function () {
   log('.inner要素にマウスが乗った');
 });
-
 function log(message) {
   console.log(message);
 }

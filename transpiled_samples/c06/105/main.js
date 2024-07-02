@@ -1,7 +1,6 @@
 // ハッシュ変更のイベントを監視
 window.addEventListener('hashchange', handleHashChange);
 handleHashChange();
-
 function handleHashChange() {
   // 変更後のハッシュの値
   var hash = location.hash;

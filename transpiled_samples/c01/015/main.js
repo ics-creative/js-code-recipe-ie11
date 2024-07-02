@@ -1,5 +1,4 @@
 var myPrice = 100;
-
 if (myPrice >= 50) {
   alert('myPriceは50以上です');
 } else if (myPrice >= 10) {

@@ -1,19 +1,20 @@
 // 保存ボタンをクリックしたときの処理
-document.querySelector('#btnSave').addEventListener('click', saveFile); // ファイルとして保存
+document.querySelector('#btnSave').addEventListener('click', saveFile);
 
+// ファイルとして保存
 function saveFile() {
   // ファイル名
-  var fileName = "mySvg.svg"; // SVG要素を取得
+  var fileName = "mySvg.svg";
+  // SVG要素を取得
+  var content = document.querySelector('#mySvg').outerHTML;
+  // データを準備
+  var dataUrl = 'data:image/svg+xml,\n' + encodeURIComponent(content);
 
-  var content = document.querySelector('#mySvg').outerHTML; // データを準備
-
-  var dataUrl = 'data:image/svg+xml,\n' + encodeURIComponent(content); // BOMの文字化け対策
-
+  // BOMの文字化け対策
   var bom = new Uint8Array([0xef, 0xbb, 0xbf]);
   var blob = new Blob([bom, content], {
     type: 'text/plain'
   });
-
   if (window.navigator.msSaveBlob) {
     // for IE
     window.navigator.msSaveBlob(blob, fileName);

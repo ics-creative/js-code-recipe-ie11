@@ -1,7 +1,6 @@
 // 要素の class 指定の切り替え
 document.querySelector('#checkbox').addEventListener('change', function (event) {
   var element = document.querySelector('.rect');
-
   if (element.classList.contains('state-show') === true) {
     element.classList.remove('state-show');
   } else {
